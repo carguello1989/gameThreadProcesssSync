@@ -27,3 +27,18 @@ void doOperation(int dim, int matriz[dim][dim]){
 int getNumberMonters(int dim){
   return dim/2;
 }
+
+
+void printMenu(){
+  printf("Presione 1 para nivel facil:");
+  printf("\n");
+
+  printf("Presione 2 para nivel normal:");
+  printf("\n");
+
+  printf("Presione 3 para nivel dificil: ");
+  printf("\n");
+  printf("\n");
+
+  printf("Ingrese el nivel que desea jugar: ");
+}

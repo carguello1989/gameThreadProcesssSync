@@ -18,38 +18,52 @@ void fillMatrix(int dim, int matriz[dim][dim]);
 void showMatrix(int dim, int matriz[dim][dim]);
 void doOperation(int dim, int matriz[dim][dim]);
 int getNumberMonters(int dim);
+void printMenu();
 
 int main(){
-    // Create a structure variable of myStructure called s1
+    //Crear tamaño de los mapas-------------------
+    // --- EASY
     struct map levelEasy;
     levelEasy.size=10;
-    struct monsters levelMonstersEasy;
-    levelMonstersEasy.size = getNumberMonters(levelEasy.size);
-    // Create a structure variable of myStructure called s1
+    // --- INTERMEDIATE
     struct map levelIntermediate;
     levelIntermediate.size=20;
+    // --- HARD
+    struct map levelHard;
+    levelHard.size=30;
+
+    //Crear cantidad de monstruos-----------------
+    // --- EASY
+    struct monsters levelMonstersEasy;
+    levelMonstersEasy.size = getNumberMonters(levelEasy.size);
+    // --- INTERMEDIATE
     struct monsters levelMonstersIntermediate;
     levelMonstersIntermediate.size= getNumberMonters(levelIntermediate.size);
-    // Create a structure variable of myStructure called s1
-    struct map levelHard;
-    levelHard.size=20;
+    // --- HARD
     struct monsters levelMonstersHard;
     levelMonstersHard.size= getNumberMonters(levelHard.size);
 
 
+    //Crear  Heroe-----------------
+    struct warrior warrior;
+    warrior.id = 1;
+   
+
+    //Crear  Heroe Ataque-----------------
+    struct warriorAttackNumber warriorAttackNumber;
+    warriorAttackNumber.id = 1;
+    warriorAttackNumber.attackNumber=1;
+
+
+
+    //Crear  Heroe Numeros de vidas-----------------
+    struct warriorLiveNumber warriorLiveNumber;
+    warriorLiveNumber.id = 1;
+    warriorLiveNumber.liveNumber = 5;
+
     srand(time(NULL));
     int dim;
-    printf("Presione 1 para nivel facil:");
-    printf("\n");
-
-    printf("Presione 2 para nivel normal:");
-    printf("\n");
-
-    printf("Presione 3 para nivel dificil: ");
-    printf("\n");
-    printf("\n");
-
-    printf("Ingrese el nivel que desea jugar: ");
+    printMenu();
     scanf("%d",&dim);
 
     int matriz1[levelEasy.size][levelEasy.size];
