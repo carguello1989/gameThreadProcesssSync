@@ -1,61 +1,40 @@
+
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
-
-// STRUCTS
-
-struct map
-{
-    /* data */
-    int size;
-};
-
-struct monsters
-{
-    /* data */
-    int size;
-};
+#include "methods.h"
+#include "map.h"
+#include "monsters.h"
+#include "monster.h"
+#include "monsterLiveRoom.h"
+#include "monsterRoom.h"
+#include "warrior.h"
+#include "warriorRoomNumber.h"
+#include "warriorAttackNumber.h"
+#include "warriorLiveNumber.h"
 
 
-struct monster
-{
-    /* data */
-    int id;
-    int liveNumber;
-    int roomNumber;
-};
-
-struct warrior
-{
-    /* data */
-    int id;
-    int liveNumber;
-    int attackNumber;
-    int roomNumber;
-};
-
-
-
-
-void llenar_Matriz(int dim, int matriz[dim][dim]);
-void mostrar_matriz(int dim, int matriz[dim][dim]);
+void fillMatrix(int dim, int matriz[dim][dim]);
+void showMatrix(int dim, int matriz[dim][dim]);
+void doOperation(int dim, int matriz[dim][dim]);
+int getNumberMonters(int dim);
 
 int main(){
     // Create a structure variable of myStructure called s1
     struct map levelEasy;
     levelEasy.size=10;
     struct monsters levelMonstersEasy;
-    levelMonstersEasy.size = (levelEasy.size/2);
+    levelMonstersEasy.size = getNumberMonters(levelEasy.size);
     // Create a structure variable of myStructure called s1
     struct map levelIntermediate;
     levelIntermediate.size=20;
     struct monsters levelMonstersIntermediate;
-    levelMonstersIntermediate.size=(levelIntermediate.size/2);
+    levelMonstersIntermediate.size= getNumberMonters(levelIntermediate.size);
     // Create a structure variable of myStructure called s1
     struct map levelHard;
     levelHard.size=20;
     struct monsters levelMonstersHard;
-    levelMonstersHard.size=(levelHard.size/2);
+    levelMonstersHard.size= getNumberMonters(levelHard.size);
 
 
     srand(time(NULL));
@@ -73,50 +52,24 @@ int main(){
     printf("Ingrese el nivel que desea jugar: ");
     scanf("%d",&dim);
 
-    if(dim == 1){
-        int matriz[levelEasy.size][levelEasy.size];
-        llenar_Matriz(levelEasy.size,matriz);// esta parte llamo a la funcion
-        printf("\nLa matriz es la siguiente \n");
-        mostrar_matriz(levelEasy.size,matriz);// esta parte llamo a la funcion para que me muestre la matriz
-    };
+    int matriz1[levelEasy.size][levelEasy.size];
+    int matriz2[levelIntermediate.size][levelIntermediate.size];
+    int matriz3[levelHard.size][levelHard.size];
 
-    
-    if(dim == 2){
-        int matriz[levelIntermediate.size][levelIntermediate.size];
-        llenar_Matriz(levelIntermediate.size,matriz);// esta parte llamo a la funcion
-        printf("\nLa matriz es la siguiente \n");
-        mostrar_matriz(levelIntermediate.size,matriz);// esta parte llamo a la funcion para que me muestre la matriz
-    };
+    switch (dim) {
+        case 1:
+                doOperation(levelEasy.size,matriz1);
 
-    if(dim == 3){
-        int matriz[levelHard.size][levelHard.size];
-        llenar_Matriz(levelHard.size,matriz);// esta parte llamo a la funcion
-        printf("\nLa matriz A es la siguiente \n");
-        mostrar_matriz(levelHard.size,matriz);// esta parte llamo a la funcion para que me muestre la matriz
-    };
+                break;
+        case 2:
+                doOperation(levelIntermediate.size,matriz2);
+                break;
+        case 3:
+                doOperation(levelHard.size,matriz3);
+                break;
+        default:
 
+            break;
+    }
  return 0;
-}
-
-
-
-
-// esta funcion muestra la matriz generada
-void mostrar_matriz(int dim, int matriz[dim][dim]){
- for(int i=0;i<dim;i++){
-  for(int j=0;j<dim;j++){
-   printf("%d\t",matriz[i][j]);
-  }
-  printf("\n");
- }
-}
-
-
-// esta funcion para llenar la matriz al azar la cual usaremos por el momento para pruebas
-void llenar_Matriz(int dim, int matriz[dim][dim]){
- for(int i=0;i<dim;i++){
-  for(int j=0;j<dim;j++){
-    matriz[i][j]= 0;
-  }
- }
 }
