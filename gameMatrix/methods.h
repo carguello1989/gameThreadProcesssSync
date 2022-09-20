@@ -108,8 +108,26 @@ void createInitialRoom(int** p){
 }
 
 
-int **createRoom(int** p , int N , int M){
+int **createRoom(int** p , int N , int M, int sizeMatrix){
   int countRoom = 0;
+  
+
+  if((N==0 || N ==sizeMatrix-1) && (M == 0 || M == N-1)){
+
+  }
+
+  else if((N>0 || N <sizeMatrix-1) && (M == 0 || M == N-1)){
+
+  }
+
+  else if((N==0 || N ==sizeMatrix-1) && (M > 0 || M < N-1)){
+
+  }
+
+  else if((N>0 || N <sizeMatrix-1) && (M > 0 || M < N-1)){
+
+  }
+  
 
 }
 
