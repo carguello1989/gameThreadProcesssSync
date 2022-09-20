@@ -101,6 +101,18 @@ void printMatrixStyle(int** p, int N, int M) {
     }    
 }
 
+void createInitialRoom(int** p){
+  int x = rand() % 10;
+  int y = rand() % 10;
+  p[x][y] = 1;
+}
+
+
+int **createRoom(int** p , int N , int M){
+  int countRoom = 0;
+
+}
+
 
 void freeArray(int** p, int N) {
     int i;

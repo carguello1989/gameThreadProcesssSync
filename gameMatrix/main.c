@@ -44,6 +44,8 @@ int main(){
                 //getNoReturn(&p, 2, 5);
                 p = get(levelEasySize, levelEasySize);
                 fillZero(p ,levelEasySize, levelEasySize);
+                //printMatrixStyle(p, levelEasySize, levelEasySize);
+                createInitialRoom(p);
                 printMatrixStyle(p, levelEasySize, levelEasySize);
                 freeArray(p ,levelEasySize);
 
