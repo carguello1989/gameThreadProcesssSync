@@ -109,26 +109,235 @@ void createInitialRoom(int** p){
 
 
 int **createRoom(int** p , int N , int M, int sizeMatrix){
-  int countRoom = 0;
-  
+  for(i=0;sizeMatrix>=i;++i){ 
+   printf("Fila %d",N);
+   printf("Columna %d",M);
+   printf("\n");
+    if (p[N][M] == 1){
+      printf("repetido");
+      printf("\n");
+      
+    }
+    
 
-  if((N==0 || N ==sizeMatrix-1) && (M == 0 || M == N-1)){
+    /// Validacion de Esquinas ///
+    //Esquina superior izquierda
+    if((N==0) && (M==0)){
+      int Aleatorio =  rand()%2;
+      if(Aleatorio == 0){
+        p[N][M] = 1;
+        N = 0; M = 1;
+      }
+      else{
+        p[N][M] = 1;
+        N = 1; M = 0;
+      }
+    }
+    //Esquina inferior izquierda
+    else if((N ==sizeMatrix-1) && (M == 0)){
+      int Aleatorio =  rand()%2;
+      if(Aleatorio == 0){
+        p[N][M] = 1;
+        N = sizeMatrix-2; M = 0;
+      }
+      else{
+        p[N][M] = 1;
+        N = sizeMatrix-1; M = 1;
+      }
+    }
+    //Esquina superior derecha
+    else if((N==0) && (M==sizeMatrix-1)){
+      int Aleatorio =  rand()%2;
+      if(Aleatorio == 0){
+        p[N][M] = 1;
+        N = 0; M = sizeMatrix-2;
+      }
+      else{
+        p[N][M] = 1;
+        N = 1; M = sizeMatrix-1;
+      }
+    }
+    //Esquina inferior derecha
+    else if((N==sizeMatrix-1) && (M==sizeMatrix-1)){
+      int Aleatorio =  rand()%2;
+      if(Aleatorio == 0){
+        p[N][M] = 1;
+        N = sizeMatrix-2; M = sizeMatrix-1;
+      }
+      else{
+        p[N][M] = 1;
+        N = sizeMatrix-1; M = sizeMatrix-2;
+      }
+    }
 
+    /// Validacion de Bordes ///
+    /// Borde Izquierdo
+    else if((N >0 || N < sizeMatrix-1 ) && (M==0)){
+      int Aleatorio =  rand()%3;
+      if(Aleatorio == 0){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N-1; M = M;
+
+         }
+      }
+      else if(Aleatorio ==1){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N; M = M+1;
+         }
+      }
+      else{
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N+1; M = M;
+         }  
+      }
+    }
+    /// Borde Derecho
+    else if((N>0 || N < sizeMatrix-1) && (M ==sizeMatrix-1)){
+      int Aleatorio =  rand()%3;
+      if(Aleatorio == 0){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N-1; M = M;
+         }  
+      }
+      else if(Aleatorio ==1){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N; M = M-1;
+         }
+      }
+      else{
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N+1; M = M;
+         }   
+      }
+    }
+    /// Borde Arriba
+    else if((N==0) && (M>0 || M < sizeMatrix-1)){
+      int Aleatorio =  rand()%3;
+      if(Aleatorio == 0){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N; M = M-1;
+         }  
+      }
+      else if(Aleatorio ==1){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N; M = M+1;
+         }
+      }
+      else{
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N+1; M = M;
+         }
+      }
+    }
+    /// Borde Abajo
+    else if((N==sizeMatrix-1) && (M>0 || M < sizeMatrix-1)){
+      int Aleatorio =  rand()%3;
+      if(Aleatorio == 0){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N; M = M-1;
+         }
+      }
+      else if(Aleatorio ==1){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N; M = M+1;
+         }
+      }
+      else{
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N-1; M = M;
+         }
+      }
+    }
+    /// Validacion de todo el centro de la matriz
+    else{
+      int Aleatorio =  rand()%4;
+      if(Aleatorio == 0){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N; M = M-1;
+         }
+      }
+      else if(Aleatorio ==1){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N; M = M+1;
+         }
+      }
+      else if(Aleatorio ==2){
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N+1; M = M;
+         }
+      }
+      else{
+         if(p[N][M] == 1){
+            i = i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = N-1; M = M;
+         }
+      }
+
+    }
   }
-
-  else if((N>0 || N <sizeMatrix-1) && (M == 0 || M == N-1)){
-
-  }
-
-  else if((N==0 || N ==sizeMatrix-1) && (M > 0 || M < N-1)){
-
-  }
-
-  else if((N>0 || N <sizeMatrix-1) && (M > 0 || M < N-1)){
-
-  }
-  
-
 }
 
 
