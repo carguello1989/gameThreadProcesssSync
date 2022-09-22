@@ -109,64 +109,98 @@ void createInitialRoom(int** p){
 
 
 int **createRoom(int** p , int N , int M, int sizeMatrix){
-  for(i=0;sizeMatrix>=i;++i){ 
+   printf("La casilla Inicial es\n");
    printf("Fila %d",N);
    printf("Columna %d",M);
    printf("\n");
-    if (p[N][M] == 1){
-      printf("repetido");
-      printf("\n");
-      
-    }
-    
-
+  for(i=0;sizeMatrix>i;++i){ 
     /// Validacion de Esquinas ///
     //Esquina superior izquierda
     if((N==0) && (M==0)){
       int Aleatorio =  rand()%2;
       if(Aleatorio == 0){
-        p[N][M] = 1;
-        N = 0; M = 1;
+         if(p[0][1] ==1){
+            i=i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = 0; M = 1;
+         }
       }
       else{
-        p[N][M] = 1;
-        N = 1; M = 0;
+         if(p[1][0] ==1){
+            i=i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = 1; M = 0;
+         }
       }
     }
     //Esquina inferior izquierda
     else if((N ==sizeMatrix-1) && (M == 0)){
       int Aleatorio =  rand()%2;
       if(Aleatorio == 0){
-        p[N][M] = 1;
-        N = sizeMatrix-2; M = 0;
+         if(p[sizeMatrix-2][0] ==1){
+            i=i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = sizeMatrix-2; M = 0;
+         }
       }
       else{
-        p[N][M] = 1;
-        N = sizeMatrix-1; M = 1;
+         if(p[sizeMatrix-1][1] == 1){
+            i=i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = sizeMatrix-1; M = 1;
+         }
       }
     }
     //Esquina superior derecha
     else if((N==0) && (M==sizeMatrix-1)){
       int Aleatorio =  rand()%2;
       if(Aleatorio == 0){
-        p[N][M] = 1;
-        N = 0; M = sizeMatrix-2;
+         if(p[0][sizeMatrix-2] ==1){
+            i=i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = 0; M = sizeMatrix-2;
+         }
       }
       else{
-        p[N][M] = 1;
-        N = 1; M = sizeMatrix-1;
+         if(p[1][sizeMatrix-1]){
+            i=i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = 1; M = sizeMatrix-1;
+         }
       }
     }
     //Esquina inferior derecha
     else if((N==sizeMatrix-1) && (M==sizeMatrix-1)){
       int Aleatorio =  rand()%2;
       if(Aleatorio == 0){
-        p[N][M] = 1;
-        N = sizeMatrix-2; M = sizeMatrix-1;
+         if(p[sizeMatrix-2][sizeMatrix-1] ==1){
+            i=i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = sizeMatrix-2; M = sizeMatrix-1;
+         }
       }
       else{
-        p[N][M] = 1;
-        N = sizeMatrix-1; M = sizeMatrix-2;
+         if(p[sizeMatrix-1][sizeMatrix-2]==1){
+            i=i-1;
+         }
+         else{
+            p[N][M] = 1;
+            N = sizeMatrix-1; M = sizeMatrix-2;
+         }
       }
     }
 
@@ -175,7 +209,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
     else if((N >0 || N < sizeMatrix-1 ) && (M==0)){
       int Aleatorio =  rand()%3;
       if(Aleatorio == 0){
-         if(p[N][M] == 1){
+         if(p[N-1][M] == 1){
             i = i-1;
          }
          else{
@@ -185,7 +219,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
          }
       }
       else if(Aleatorio ==1){
-         if(p[N][M] == 1){
+         if(p[N][M+1] == 1){
             i = i-1;
          }
          else{
@@ -194,7 +228,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
          }
       }
       else{
-         if(p[N][M] == 1){
+         if(p[N+1][M] == 1){
             i = i-1;
          }
          else{
@@ -207,7 +241,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
     else if((N>0 || N < sizeMatrix-1) && (M ==sizeMatrix-1)){
       int Aleatorio =  rand()%3;
       if(Aleatorio == 0){
-         if(p[N][M] == 1){
+         if(p[N-1][M] == 1){
             i = i-1;
          }
          else{
@@ -216,7 +250,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
          }  
       }
       else if(Aleatorio ==1){
-         if(p[N][M] == 1){
+         if(p[N][M-1] == 1){
             i = i-1;
          }
          else{
@@ -225,7 +259,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
          }
       }
       else{
-         if(p[N][M] == 1){
+         if(p[N+1][M] == 1){
             i = i-1;
          }
          else{
@@ -238,7 +272,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
     else if((N==0) && (M>0 || M < sizeMatrix-1)){
       int Aleatorio =  rand()%3;
       if(Aleatorio == 0){
-         if(p[N][M] == 1){
+         if(p[N][M-1] == 1){
             i = i-1;
          }
          else{
@@ -247,7 +281,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
          }  
       }
       else if(Aleatorio ==1){
-         if(p[N][M] == 1){
+         if(p[N][M+1] == 1){
             i = i-1;
          }
          else{
@@ -256,7 +290,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
          }
       }
       else{
-         if(p[N][M] == 1){
+         if(p[N+1][M] == 1){
             i = i-1;
          }
          else{
@@ -269,7 +303,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
     else if((N==sizeMatrix-1) && (M>0 || M < sizeMatrix-1)){
       int Aleatorio =  rand()%3;
       if(Aleatorio == 0){
-         if(p[N][M] == 1){
+         if(p[N][M-1] == 1){
             i = i-1;
          }
          else{
@@ -278,7 +312,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
          }
       }
       else if(Aleatorio ==1){
-         if(p[N][M] == 1){
+         if(p[N][M+1] == 1){
             i = i-1;
          }
          else{
@@ -287,7 +321,7 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
          }
       }
       else{
-         if(p[N][M] == 1){
+         if(p[N-1][M] == 1){
             i = i-1;
          }
          else{
@@ -299,40 +333,46 @@ int **createRoom(int** p , int N , int M, int sizeMatrix){
     /// Validacion de todo el centro de la matriz
     else{
       int Aleatorio =  rand()%4;
+
+      printf("\n");
       if(Aleatorio == 0){
-         if(p[N][M] == 1){
+         printf("Izquierda");
+         if(p[N][M-1] == 1){
             i = i-1;
          }
          else{
-            p[N][M] = 1;
-            N = N; M = M-1;
+               p[N][M] = 1;
+               N = N; M = M-1;
          }
       }
       else if(Aleatorio ==1){
-         if(p[N][M] == 1){
+         printf("Derecha");
+         if(p[N][M+1] == 1){
             i = i-1;
          }
          else{
-            p[N][M] = 1;
-            N = N; M = M+1;
+               p[N][M] = 1;
+               N = N; M = M+1;
          }
       }
       else if(Aleatorio ==2){
-         if(p[N][M] == 1){
+         printf("Baja");
+         if(p[N+1][M] == 1){
             i = i-1;
          }
          else{
-            p[N][M] = 1;
-            N = N+1; M = M;
+               p[N][M] = 1;
+               N = N+1; M = M;
          }
       }
       else{
-         if(p[N][M] == 1){
+         printf("Sube");
+         if(p[N-1][M] == 1){
             i = i-1;
          }
          else{
-            p[N][M] = 1;
-            N = N-1; M = M;
+               p[N][M] = 1;
+               N = N-1; M = M;
          }
       }
 
