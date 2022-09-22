@@ -109,6 +109,7 @@ void createInitialRoom(int** p){
 
 
 int **createRoom(int** p , int N , int M, int sizeMatrix){
+   int i;
    printf("La casilla Inicial es\n");
    printf("Fila %d",N);
    printf("Columna %d",M);
