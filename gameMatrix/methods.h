@@ -108,8 +108,10 @@ void createInitialRoom(int** p){
 }
 
 
-int **createRoom(int** p , int N , int M, int sizeMatrix){
+void **createRoom(int** p , int sizeMatrix){
    int i;
+   int N = rand() % (sizeMatrix-1);
+   int M = rand() % (sizeMatrix-1);
    printf("La casilla Inicial es\n");
    printf("Fila %d",N);
    printf("Columna %d",M);
