@@ -37,24 +37,34 @@ int main(){
     printMenu();
     scanf("%d",&dim);
 
-    int **p;
+    int **p, **pointerMonsters;
+
+    int **array1, **array2 , **array3;
 
     switch (dim) {
         case 1:
                 //getNoReturn(&p, 2, 5);
-                p = get(levelEasySize, levelEasySize);
+                p = get(levelEasySize, levelEasySize, array1);
                 fillZero(p ,levelEasySize, levelEasySize);
                 //printMatrixStyle(p, levelEasySize, levelEasySize);
-                createInitialRoom(p);
-                printMatrixStyle(p, levelEasySize, levelEasySize);
+                //createInitialRoom(p);
+                int N = rand() % (levelEasySize-1);
+                int M = rand() % (levelEasySize-1);
+                createRoom(p , N, M, levelEasySize);
+                //printMatrixStyle(p, levelEasySize, levelEasySize);
+                
+                pointerMonsters= getArrayRoomAvailablesWithInitialRoom(p ,  N,  M,  levelEasySize, array1, pointerMonsters);
+                printMatrixStyle(pointerMonsters, levelEasySize, levelEasySize);
                 freeArray(p ,levelEasySize);
 
 
                 break;
         case 2:
                 //getNoReturn(&p, 2, 5);
-                p = get(levelIntermediateSize, levelIntermediateSize);
+                p = get(levelIntermediateSize, levelIntermediateSize, array2);
                 fillZero(p ,levelIntermediateSize, levelIntermediateSize);
+                createInitialRoom(p);
+                //createRoom(p , levelIntermediateSize);
                 printMatrixStyle(p, levelIntermediateSize, levelIntermediateSize);
                 freeArray(p ,levelIntermediateSize);
 
@@ -62,8 +72,10 @@ int main(){
         case 3:
 
                 //getNoReturn(&p, 2, 5);
-                p = get(levelHardSize, levelHardSize);
+                p = get(levelHardSize, levelHardSize, array3);
                 fillZero(p ,levelHardSize, levelHardSize);
+                createInitialRoom(p);
+                //createRoom(p , levelHardSize);
                 printMatrixStyle(p, levelHardSize, levelHardSize);
                 freeArray(p ,levelHardSize);
 

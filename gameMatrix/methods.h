@@ -51,10 +51,10 @@ void printMenu(){
 
 
 // We return the pointer
-int **get(int N, int M) /* Allocate the array */
+int **get(int N, int M, int **array) /* Allocate the array */
 {
     /* Check if allocation succeeded. (check for NULL pointer) */
-    int i, **array;
+    int i;
     array = malloc(N*sizeof(int *));
     for(i = 0 ; i < N ; i++)
         array[i] = malloc( M*sizeof(int) );
@@ -108,10 +108,10 @@ void createInitialRoom(int** p){
 }
 
 
-void **createRoom(int** p , int sizeMatrix){
+void **createRoom(int** p , int N, int M, int sizeMatrix){
    int i;
-   int N = rand() % (sizeMatrix-1);
-   int M = rand() % (sizeMatrix-1);
+   //int N = rand() % (sizeMatrix-1);
+   //int M = rand() % (sizeMatrix-1);
    printf("La casilla Inicial es\n");
    printf("Fila %d",N);
    printf("Columna %d",M);
@@ -339,7 +339,7 @@ void **createRoom(int** p , int sizeMatrix){
 
       printf("\n");
       if(Aleatorio == 0){
-         printf("Izquierda");
+
          if(p[N][M-1] == 1){
             i = i-1;
          }
@@ -349,7 +349,7 @@ void **createRoom(int** p , int sizeMatrix){
          }
       }
       else if(Aleatorio ==1){
-         printf("Derecha");
+
          if(p[N][M+1] == 1){
             i = i-1;
          }
@@ -359,7 +359,7 @@ void **createRoom(int** p , int sizeMatrix){
          }
       }
       else if(Aleatorio ==2){
-         printf("Baja");
+  
          if(p[N+1][M] == 1){
             i = i-1;
          }
@@ -369,7 +369,7 @@ void **createRoom(int** p , int sizeMatrix){
          }
       }
       else{
-         printf("Sube");
+
          if(p[N-1][M] == 1){
             i = i-1;
          }
@@ -381,6 +381,20 @@ void **createRoom(int** p , int sizeMatrix){
 
     }
   }
+}
+
+
+int **getArrayRoomAvailablesWithInitialRoom(int** p , int N, int M, int sizeMatrix, int **array, int** pointerMonster){
+
+   p[N][M]  = 3;// asigne el inicio con el 3
+   for(int x=0;x<sizeMatrix;++x){
+      for(int y=0;y<sizeMatrix;++y){
+         if(p[x][y]!=0 && p[x][y]!=3){
+            //printf("d[%d][%d]\n", x,y );
+         }
+      }
+   }
+   return p;
 }
 
 
